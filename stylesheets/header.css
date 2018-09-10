@@ -1,0 +1,15 @@
+.header {
+  background-color: #ff0051;
+  padding-top: 5vh;
+  padding-left: 5vw;
+  padding-bottom: 2vh;
+  margin-bottom: 2vh;
+  background-image: url("../img/purple_lipstick.jpeg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.title {
+  color: #fff;
+  font-size: calc(34pt + 1.5vw);
+}

@@ -1,0 +1,41 @@
+.reviews {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-left: 20vw;
+}
+
+.uploadedImage {
+  height: auto;
+  max-width: 300px;
+}
+
+.imageHolder {
+  text-align: center;
+}
+
+.imageSection {
+  padding: 25px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  max-width: 300px;
+  background-color: #a98ca4;
+  border-radius: 15px;
+  box-shadow: 0px 1px 10px 0px #a98ca4;
+}
+
+.imageLabels {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.imageLabel {
+  padding: 10px;
+  margin: 3px;
+  background: white;
+  color: #000;
+  font-size: 12pt;
+  border-radius: 2px;
+  border:solid	1px #cccccc;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>RefArch Demo Customer Feedback Application</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="stylesheets/global.css">
+    <link rel="stylesheet" href="stylesheets/header.css">
+    <link rel="stylesheet" href="stylesheets/reviews.css">
+    <link rel="stylesheet" href="stylesheets/reviews.css">
+	<link rel="stylesheet" href="fontawesome/css/font-awesome.min.css">
+  </head>
+
+  <body onload="listReviews()">
+    <div id="container">
+    <div class="header">
+      <div class="title">
+        RefArch Demo Customer Feedback Application
+      </div>
+    </div>    
+
+
+    <div class="reviews">
+     
+      <br>
+	  <hr>
+      
+     
+
+        <form></br>
+	    <h4>Please leave a review!</h4>
+            YOUR NAME: 
+			<p>
+			<input type="text" id="rname" name="name" placeholder="Your name"/><br>
+			
+            <p class="rating">SELECT YOUR RATING: </br>
+			<input type="checkbox" id="st1" value="1" />
+			<label for="st1"></label>
+			<input type="checkbox" id="st2" value="2" />
+			<label for="st2"></label>
+			<input type="checkbox" id="st3" value="3" />
+			<label for="st3"></label>
+			<input type="checkbox" id="st4" value="4" />
+			<label for="st4"></label>
+			<input type="checkbox" id="st5" value="5" />
+			<label for="st5"></label>
+			</p>
+			</br>
+			<p>
+            COMMENT:
+			</p>
+			<p>
+			<textarea id="rbody" name="body" rows="5" cols="30"></textarea><br>
+            <button type="button" onclick="addReview()" value="Click here to submit the form">
+			
+			Submit your review</button>
+			</p>
+        </form>
+ <div id="rlist" style=" height: 100px"></div>
+    </div>
+	</div>
+  </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<script>
+function addReview() {
+  console.log("hitdb()");
+  axios.post(
+    "https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/YOURURL/refarchReviews/addReview", {
+      name: document.getElementById("rname").value,
+      rating: document.getElementById("rrating").value,
+      body: document.getElementById("rbody").value
+    }, {
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(function (response) {
+     console.log(response);
+     listReviews();
+    })
+    .catch(function (error) {
+     console.log("error: ", error);
+    })
+}
+</script>
+<script>
+function listReviews() {
+  console.log("listreviews");
+  axios.get(
+    "https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/YOURURL/refarchReviews/listReviews", {
+    }, {
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(function (response) {
+    console.log(response);
+    var rList = JSON.parse(response.data.msg.body);
+    var rListText = "<br><h4>Previous Reviews</h4>";
+    for ( var i=0;i<rList.docs.length;i++)
+      {
+        rListText = rListText + "<div class='imageLabel'>" + "Reviewer Name: " + rList.docs[i].name + "<br/>" + "Rating: " + rList.docs[i].rating + "<br>" + "Review: " + rList.docs[i].body + "<br></div><br>";
+      };
+    document.getElementById("rlist").innerHTML = rListText;
+    })
+    .catch(function (error) {
+    console.log(error);
+    });
+}
+
+</script>
+</html>
+<script src="scripts/getProductImage.js"></script>

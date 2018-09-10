@@ -1,0 +1,80 @@
+
+body, html {
+
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #000;
+	margin:0px;
+	font-size:0.9em;
+}
+
+h4 {
+	
+font-size:1.5em;	
+}
+
+#container {
+	background-color: rgba(255, 255, 255,0.6);}
+	
+	
+input,textarea{
+padding:5px;	
+border: solid 1.5px #dddddd;
+border-radius:2px;
+width: 100%;
+background-color:#f7f7f7;
+margin-bottom:20px;
+}
+	
+button {
+margin-top:10px;
+padding:10px;
+border:1px solid #ff0053;
+border-radius:3px;
+background-color: #ff0053;	
+color:white;
+text-transform: uppercase;
+font-weight: bold;
+}
+
+
+
+.rating input {
+  border: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  opacity: 0;
+}
+
+.rating label {
+  position: relative;
+  float: right;
+  color: #C8C8C8;
+}
+
+.rating label:before {
+  margin: 5px;
+  content: "\f005";
+  font-family: FontAwesome;
+  display: inline-block;
+  font-size: 1.5em;
+  color: #ccc;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.rating input:checked ~ label:before {
+  color: #ff0053;
+}
+
+.rating label:hover ~ label:before {
+  color: #ff0053;
+}
+
+.rating label:hover:before {
+  color: #ff0053;
+}

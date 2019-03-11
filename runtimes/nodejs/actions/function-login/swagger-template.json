@@ -1,0 +1,66 @@
+{
+    "swagger": "2.0",
+    "basePath": "/login",
+    "info": {
+        "title": "login",
+        "version": "1.0"
+    },
+    "paths": {
+        "/login": {
+            "get": {
+                "operationId": "getLogin",
+                "responses": {
+                    "200": {
+                        "description": "A successful invocation response"
+                    }
+                },
+                "x-openwhisk": {
+                    "action": "login-and-redirect",
+                    "namespace": "xxx-your-openwhisk-namespace-for-example:niklas_heidloff%40de.ibm.com_demo-xxx",
+                    "package": "serverless-web-app-generic",
+                    "url": "https://openwhisk.ng.bluemix.net/api/v1/web/xxx-your-openwhisk-namespace-for-example:niklas_heidloff%40de.ibm.com_demo-xxx/serverless-web-app-generic/login-and-redirect"
+                }
+            }
+        }
+    },
+    "x-ibm-configuration": {
+        "assembly": {
+            "execute": [
+                {
+                    "operation-switch": {
+                        "case": [
+                            {
+                                "execute": [
+                                    {
+                                        "set-variable": {
+                                            "actions": [
+                                                {
+                                                    "set": "message.headers.X-Require-Whisk-Auth",
+                                                    "value": "150261be-6ffa-40b5-b69a-76785b3486e1"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "invoke": {
+                                            "target-url": "https://openwhisk.ng.bluemix.net/api/v1/web/xxx-your-openwhisk-namespace-for-example:niklas_heidloff%40de.ibm.com_demo-xxx/serverless-web-app-generic/login-and-redirect",
+                                            "verb": "keep"
+                                        }
+                                    }
+                                ],
+                                "operations": [
+                                    "getLogin"
+                                ]
+                            }
+                        ],
+                        "otherwise": [],
+                        "title": "whisk-invoke"
+                    }
+                }
+            ]
+        },
+        "cors": {
+            "enabled": true
+        }
+    }
+}

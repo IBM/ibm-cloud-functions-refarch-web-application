@@ -1,10 +1,8 @@
 # ibm-cloud-functions-web-application
 
-This repo explains how to build and run serverless web applications on the IBM Cloud. Business logic is implemented with IBM Cloud Functions, static web resources are stored in IBM Object Storage, authentication is handled via IBM App ID and data is stored in the managed NoSQL database IBM Cloudant.
+This repo explains how to build and run serverless web applications on the [IBM Cloud](https://cloud.ibm.com/). Business logic is implemented with [IBM Cloud Functions](https://cloud.ibm.com/openwhisk/), static web resources are stored in [IBM Cloud Object Storage](https://cloud.ibm.com/catalog/services/cloud-object-storage), authentication is handled via [IBM App ID](https://cloud.ibm.com/catalog/services/app-id) and data is stored in the managed NoSQL database [IBM Cloudant](https://console.bluemix.net/catalog/services/cloudant).
 
-The project contains a sample web application built with Angular which requires user authentication to access data in Cloudant. Optionally, there is a more complex [Vue.js application](https://github.com/IBM/blue-cloud-mirror/tree/master/game) you can deploy.
-
-While the Angular application and the protected API are samples, the other components in this repo are generic and can be reused for other web applications, for example the login functionality and the setup of App ID, Cloudant and Object Storage.
+The project contains a sample web application built with Angular which requires user authentication to access data in Cloudant. The Angular application and protected APIs are custom examples, whilst other components in this repo are generic and can be reused for other web applications, e.g. login functionality and the setup of App ID, Cloudant and Object Storage.
 
 ![alt text](documentation/serverless-web-app.png "architecture diagram")
 
@@ -29,12 +27,12 @@ While the Angular application and the protected API are samples, the other compo
 
 Create an IBM Cloud lite account (free, no credit card required):
 
-* [IBM Cloud account](https://ibm.biz/nheidloff)
+* [IBM Cloud account](https://cloud.ibm.com/registration)
 
 Make sure you have the following tools installed:
 
 * [git](https://git-scm.com/downloads)
-* [ibmcloud CLI](https://console.bluemix.net/docs/cli/index.html)
+* [ibmcloud CLI](https://cloud.ibm.com/openwhisk/learn/cli)
 * [node](https://nodejs.org/en/download/)
 * [curl](https://curl.haxx.se/download.html)
 * [ng](https://github.com/angular/angular-cli/wiki) (only needed for the Angular sample application)

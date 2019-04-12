@@ -8,7 +8,7 @@ The project contains a sample web application built with Angular which requires 
 
 # Watch the Video
 
-![](documentation/serverless-web-app.mp4)
+![](documentation/serverless-web-app.gif)
 
 # Steps
 

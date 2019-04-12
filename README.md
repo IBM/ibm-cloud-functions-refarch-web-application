@@ -53,7 +53,7 @@ $ cat serverless-web-application.json
 $ cp template.local.env local.env
 ```
 
-In [local.env](local.env) define 'IBMCLOUD_API_KEY', 'IBMCLOUD_ORG', 'IBMCLOUD_SPACE' and 'BLUEMIX_REGION' to match the apikey in [serverless-web-application.json](serverless-web-application.json) and the org, space and region name that you're using (see the outputs in your terminal when following the steps above).
+In [local.env](local.env) define `IBMCLOUD_API_KEY`, `IBMCLOUD_ORG`, and `IBMCLOUD_SPACE` to match the apikey in [serverless-web-application.json](serverless-web-application.json) and the organization and space names you are using (see the outputs in your terminal when following the steps above). If you picked a region other than `us-south` when logging in, you will need to update `BLUEMIX_REGION` as well.
 
 ## App ID Setup
 

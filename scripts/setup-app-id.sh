@@ -52,12 +52,6 @@ function ibmcloud_login() {
   # Skip version check updates
   ibmcloud config --check-version=false
 
-  # Obtain the API endpoint from BLUEMIX_REGION and set it as default
-  _out Logging in to IBM cloud
-  ibmcloud api --unset
-  IBMCLOUD_API_ENDPOINT=$(ibmcloud api | awk '/'$BLUEMIX_REGION'/{ print $2 }')
-  ibmcloud api $IBMCLOUD_API_ENDPOINT
-
   # Login to ibmcloud, generate .wskprops
   ibmcloud login --apikey $IBMCLOUD_API_KEY -a $IBMCLOUD_API_ENDPOINT
   ibmcloud target -o "$IBMCLOUD_ORG" -s "$IBMCLOUD_SPACE"
@@ -127,6 +121,6 @@ export TF_VAR_appid_plan=${IBMCLOUD_APPID_PLAN:-"lite"}
 export TF_VAR_cloudant_plan=${IBMCLOUD_CLOUDANT_PLAN:-"Lite"}
 
 _out Full install output in $LOG_FILE
-ibmcloud_login
+# ibmcloud_login
 setup $@
 esac

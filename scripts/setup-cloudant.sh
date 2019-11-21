@@ -64,7 +64,7 @@ function ibmcloud_login() {
 
 function setup() {
   _out Creating Cloudant service instance
-  ibmcloud resource service-instance-create cloudant-serverless cloudantnosqldb lite $BLUEMIX_REGION
+  ibmcloud resource service-instance-create cloudant-serverless cloudantnosqldb lite $BLUEMIX_REGION -p '{ "legacyCredentials": true }'
   
   _out Creating Cloudant credentials
   ibmcloud resource service-key-create cloudant-serverless-credentials Manager --instance-name cloudant-serverless
